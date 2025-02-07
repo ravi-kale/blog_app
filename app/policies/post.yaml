@@ -1,0 +1,23 @@
+apiVersion: api.cerbos.dev/v1
+resourcePolicy:
+  version: "default"
+  resource: "post"
+  rules:
+    - actions: ['read']
+      effect: EFFECT_ALLOW
+      roles: ['admin', 'author', 'reader']
+
+    - actions: ['create']
+      effect: EFFECT_ALLOW
+      roles: ['admin', 'author']
+
+    - actions: ['update']
+      effect: EFFECT_ALLOW
+      roles: ['admin', 'author']
+      condition:
+        match:
+          expr: request.resource.attr.author_id == request.principal.id
+
+    - actions: ['delete']
+      effect: EFFECT_ALLOW
+      roles: ['admin']

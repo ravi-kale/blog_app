@@ -1,0 +1,15 @@
+api:
+  httpListenAddr: ":3592"
+  grpcListenAddr: ":3593"
+
+storage:
+  driver: disk
+  disk:
+    directory: /app/policies
+    watchForChanges: true
+
+telemetry:
+  disabled: true
+
+audit:
+  enabled: false
