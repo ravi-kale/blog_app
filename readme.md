@@ -35,6 +35,8 @@ mkdir -p data/postgres
 
 ### 3️⃣ Start the application
 ```bash
+docker-compose up --build -d
+OR
 docker-compose up -d
 ```
 
